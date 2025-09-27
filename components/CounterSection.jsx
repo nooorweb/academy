@@ -14,7 +14,7 @@ export default function CounterSection() {
     if (!hasAnimated) return;
 
     const targetCounts = {
-      students: 10000,
+      students: 5000,
       courses: 15,
       instructors: 10,
       successRate: 95

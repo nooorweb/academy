@@ -162,25 +162,38 @@ export default function Footer() {
             <div className="text-sm text-gray-300">
               © {new Date().getFullYear()} The Global English Academy, Bannu. All rights reserved.
             </div>
-            <div className="flex gap-6 text-sm">
-              <Link 
-                href="/privacy" 
-                className="text-gray-300 hover:text-primary-blue transition-colors duration-300 ease-in-out"
-              >
-                Privacy Policy
-              </Link>
-              <Link 
-                href="/terms" 
-                className="text-gray-300 hover:text-primary-blue transition-colors duration-300 ease-in-out"
-              >
-                Terms of Service
-              </Link>
-              <Link 
-                href="/contact" 
-                className="text-gray-300 hover:text-primary-blue transition-colors duration-300 ease-in-out"
-              >
-                Contact Us
-              </Link>
+            <div className="flex flex-col md:flex-row items-center gap-4">
+              <div className="text-sm text-gray-300">
+                Developed by{' '}
+                <a 
+                  href="https://www.linkedin.com/in/noor-ul-amin" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-primary-blue hover:text-blue-300 transition-colors duration-300 font-medium"
+                >
+                  Noor ul Amin
+                </a>
+              </div>
+              <div className="flex gap-6 text-sm">
+                <Link 
+                  href="/privacy" 
+                  className="text-gray-300 hover:text-primary-blue transition-colors duration-300 ease-in-out"
+                >
+                  Privacy Policy
+                </Link>
+                <Link 
+                  href="/terms" 
+                  className="text-gray-300 hover:text-primary-blue transition-colors duration-300 ease-in-out"
+                >
+                  Terms of Service
+                </Link>
+                <Link 
+                  href="/contact" 
+                  className="text-gray-300 hover:text-primary-blue transition-colors duration-300 ease-in-out"
+                >
+                  Contact Us
+                </Link>
+              </div>
             </div>
           </div>
         </div>
