@@ -13,14 +13,9 @@ export default function ContactPage() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <div className="inline-flex items-center gap-3 bg-blue-600 text-white px-6 py-3 rounded-full mb-6">
-            <img src="/logo.jpeg" alt="Academy Logo" className="h-8 w-auto" />
-            <span className="font-semibold">The Global English Academy</span>
-          </div>
-          <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-4 text-gray-900">Get in Touch</h1>
-          <p className="text-blue-600 text-xl font-semibold mb-6 italic">"Empowering Minds, Shaping Futures"</p>
+        className="text-center mb-16"
+      >
+        <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-6 text-gray-900">Get in Touch</h1>
         <p className="text-gray-600 text-lg max-w-2xl mx-auto">
           Have questions about our courses or need guidance? We'd love to hear from you. 
           Send us a message and we'll respond as soon as possible.

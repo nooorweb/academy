@@ -1,12 +1,19 @@
 import Head from "next/head";
 import Image from "next/image";
-import ModernHeroCarousel from "../components/ModernHeroCarousel";
+import ImageCarousel from "../components/ImageCarousel";
+import { aboutCarouselSlides } from "../data/aboutCarousel";
 
 export default function AboutPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-white">
       {/* Hero Carousel Section - Full Screen */}
-      <ModernHeroCarousel />
+      <ImageCarousel 
+        slides={aboutCarouselSlides} 
+        height="h-[60vh] sm:h-[70vh] md:h-[80vh] lg:h-[85vh]"
+        showBadge={true}
+        showProgressBar={true}
+        autoPlay={true}
+      />
       
       <div className="mx-auto max-w-6xl px-3 xs:px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
         <Head>

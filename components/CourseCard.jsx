@@ -13,7 +13,7 @@ export default function CourseCard({ course }) {
     >
       <Link
         href={`/courses/${course.id}`}
-        className="group block rounded-xl bg-white shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden"
+        className="group block rounded-xl bg-white shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden h-full flex flex-col"
       >
         {/* Image */}
         <div className="h-40 md:h-48 w-full overflow-hidden relative">
@@ -26,7 +26,7 @@ export default function CourseCard({ course }) {
         </div>
 
         {/* Content */}
-        <div className="p-4 md:p-5">
+        <div className="p-4 md:p-5 flex flex-col flex-grow">
           {/* Tags */}
           <div className="flex flex-wrap items-center gap-2 mb-3">
             {course.level && (
@@ -66,13 +66,13 @@ export default function CourseCard({ course }) {
 
           {/* Description */}
           {course.description && (
-            <p className="text-gray-600 text-sm mb-4 line-clamp-2 leading-relaxed">
+            <p className="text-gray-600 text-sm mb-4 line-clamp-2 leading-relaxed flex-grow">
               {course.description}
             </p>
           )}
 
           {/* Teacher + Rating */}
-          <div className="flex items-center justify-between mb-4">
+          <div className="flex items-center justify-between mb-4 mt-auto">
             {course.teacher && (
               <div className="flex items-center gap-2 text-xs text-gray-600">
               
@@ -102,7 +102,9 @@ export default function CourseCard({ course }) {
                 {course.currency || "PKR"}
               </div>
             </div>
-            <button className="bg-primary-gradient text-white px-4 md:px-5 py-1.5 md:py-2 rounded-full text-xs md:text-sm font-medium transition-all duration-300 shadow-md hover:shadow-lg hover:translate-x-1">
+            <button 
+              className="bg-primary-blue text-white px-4 md:px-5 py-1.5 md:py-2 rounded-full text-xs md:text-sm font-medium transition-all duration-300 shadow-md hover:shadow-lg hover:translate-x-1 hover:bg-blue-700"
+            >
               Enroll <i className="fas fa-arrow-right ml-1 text-[10px]"></i>
             </button>
           </div>

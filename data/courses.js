@@ -1,6 +1,18 @@
 
 export const courses = [
   {
+    id: "safety-course",
+    title: "Safety Course",
+    teacher: "Safety Expert",
+    image: "/images/safety course.jpeg",
+    description: "Learn Safety, Save Lives! Internationally recognized Safety Courses – NEBOSH, IOSH, OSHA, Fire Safety, ISO, WPR, QC, First Aid, Risk Assessment, Scaffolding & HSE Diploma.",
+    level: "advanced",
+    durationMonths: 6,
+    fee: 40000,
+    currency: "PKR",
+    slug: "safety-course",
+  },
+  {
     id: "cdc-computer-skills",
     title: "CDC – Computer & Digital Skills Course",
     teacher: "Professional Trainer",

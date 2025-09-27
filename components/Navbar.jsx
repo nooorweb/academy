@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { useState } from "react";
+import Button from "./Button";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -38,12 +39,13 @@ export default function Navbar() {
 
         {/* CTA Button */}
         <div className="hidden md:flex items-center gap-4">
-          <Link 
+          <Button 
             href="/courses" 
-            className="bg-primary-gradient text-white px-6 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl button-font"
+            variant="primary"
+            size="sm"
           >
             Get Started
-          </Link>
+          </Button>
         </div>
 
         {/* Mobile Menu Button */}
@@ -95,13 +97,15 @@ export default function Navbar() {
               Contact
             </Link>
             <div className="pt-4 border-t">
-              <Link 
+              <Button 
                 href="/courses" 
-                className="block bg-primary-gradient text-white px-6 py-3 rounded-full text-center font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg button-font"
+                variant="primary"
+                size="md"
+                className="w-full"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Get Started
-              </Link>
+              </Button>
             </div>
           </nav>
         </div>

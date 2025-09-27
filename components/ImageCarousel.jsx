@@ -3,57 +3,16 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import Button from "./Button";
 
-export default function ImageCarousel() {
+export default function ImageCarousel({ 
+  slides = [], 
+  height = "h-[70vh] lg:h-[85vh]",
+  showBadge = false,
+  showProgressBar = true,
+  autoPlay = true
+}) {
   const [currentSlide, setCurrentSlide] = useState(0);
-
-  const slides = [
-    {
-      id: 1,
-      image: "/images/carousel-img-1.jpeg",
-      title: "Welcome to The Global English Academy",
-      subtitle: "Empowering Minds, Shaping Futures",
-      description: "Professional English language and computer education in Bannu",
-      cta: "Explore Courses",
-      ctaLink: "/courses",
-    },
-    {
-      id: 2,
-      image: "/images/carousel-img-2.jpeg",
-      title: "Expert-Led Training Programs",
-      subtitle: "Learn from Industry Professionals",
-      description: "Comprehensive courses designed for career success",
-      cta: "Meet Our Teachers",
-      ctaLink: "/teachers",
-    },
-    {
-      id: 3,
-      image: "/images/carousel-img-3.jpeg",
-      title: "Modern Learning Environment",
-      subtitle: "State-of-the-Art Facilities",
-      description: "Equipped with latest technology and resources",
-      cta: "Take a Tour",
-      ctaLink: "/about",
-    },
-    {
-      id: 4,
-      image: "/images/carousel-img-4.jpeg",
-      title: "Certified Programs",
-      subtitle: "Internationally Recognized Certificates",
-      description: "Boost your career with industry-standard certifications",
-      cta: "View Certificates",
-      ctaLink: "/courses",
-    },
-    {
-      id: 5,
-      image: "/images/carousel-img-5.jpeg",
-      title: "Student Success Stories",
-      subtitle: "Join Our Community",
-      description: "Be part of thousands of successful graduates",
-      cta: "Read Testimonials",
-      ctaLink: "/about",
-    },
-  ];
 
   const goToSlide = (index) => setCurrentSlide(index);
   const goToPrevious = () =>
@@ -62,7 +21,7 @@ export default function ImageCarousel() {
     setCurrentSlide((prev) => (prev + 1) % slides.length);
 
   return (
-    <div className="relative w-full h-[70vh] lg:h-[85vh] overflow-hidden bg-black">
+    <div className={`relative w-full ${height} overflow-hidden bg-black`}>
       {/* Slides stack */}
       <div className="relative w-full h-full">
         {slides.map((slide, index) => (
@@ -96,10 +55,12 @@ export default function ImageCarousel() {
                     className="space-y-6 max-w-2xl"
                   >
                     {/* Badge */}
-                    <span className="inline-flex items-center px-4 py-1.5 rounded-full text-white text-xs sm:text-sm font-semibold shadow-lg bg-gradient-to-r from-blue-500 to-purple-600">
-                      <i className="fas fa-star mr-1.5 text-xs"></i>
-                      Premier Education
-                    </span>
+                    {showBadge && slide.badge && (
+                      <span className={`inline-flex items-center px-4 py-1.5 rounded-full text-white text-xs sm:text-sm font-semibold shadow-lg ${slide.badgeColor || 'bg-gradient-to-r from-blue-500 to-purple-600'}`}>
+                        <i className="fas fa-star mr-1.5 text-xs"></i>
+                        {slide.badge}
+                      </span>
+                    )}
 
                     {/* Title */}
                     <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white leading-tight">
@@ -115,21 +76,25 @@ export default function ImageCarousel() {
                     </p>
 
                     {/* Buttons */}
-                    <div className="flex flex-col sm:flex-row gap-4">
-                      <a
-                        href={slide.ctaLink}
-                        className="inline-flex items-center justify-center px-6 lg:px-8 py-3 lg:py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold rounded-full shadow-xl hover:shadow-blue-500/40 transition-all duration-300 hover:scale-105 text-sm lg:text-base"
-                      >
-                        <i className="fas fa-rocket mr-2"></i>
-                        {slide.cta}
-                      </a>
-                      <a
+                    <div className="flex flex-col sm:flex-row gap-3">
+                      {slide.cta && slide.ctaLink && (
+                        <Button
+                          href={slide.ctaLink}
+                          variant="primary"
+                          size="md"
+                          icon="fas fa-arrow-right"
+                        >
+                          {slide.cta}
+                        </Button>
+                      )}
+                      <Button
                         href="/contact"
-                        className="inline-flex items-center justify-center px-6 lg:px-8 py-3 lg:py-4 bg-white/10 backdrop-blur-sm text-white font-semibold rounded-full border border-white/40 hover:bg-white/20 hover:border-white/60 transition-all duration-300 hover:scale-105 text-sm lg:text-base"
+                        variant="ghost"
+                        size="md"
+                        icon="fas fa-play"
                       >
-                        <i className="fas fa-play mr-2"></i>
                         Contact Us
-                      </a>
+                      </Button>
                     </div>
                   </motion.div>
                 </div>
@@ -143,17 +108,17 @@ export default function ImageCarousel() {
       <div className="absolute bottom-6 right-6 flex gap-3 z-20">
         <button
           onClick={goToPrevious}
-          className="bg-white/20 hover:bg-white/30 text-white p-3 rounded-full transition-all duration-300 hover:scale-110 border border-white/30"
+          className="bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white p-4 rounded-full transition-all duration-300 hover:scale-110 border border-white/20 hover:border-white/40 shadow-lg hover:shadow-xl"
           aria-label="Previous slide"
         >
-          <i className="fas fa-chevron-left"></i>
+          <i className="fas fa-chevron-left text-lg"></i>
         </button>
         <button
           onClick={goToNext}
-          className="bg-white/20 hover:bg-white/30 text-white p-3 rounded-full transition-all duration-300 hover:scale-110 border border-white/30"
+          className="bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white p-4 rounded-full transition-all duration-300 hover:scale-110 border border-white/20 hover:border-white/40 shadow-lg hover:shadow-xl"
           aria-label="Next slide"
         >
-          <i className="fas fa-chevron-right"></i>
+          <i className="fas fa-chevron-right text-lg"></i>
         </button>
       </div>
 
@@ -173,14 +138,16 @@ export default function ImageCarousel() {
       </div>
 
       {/* Progress Bar */}
-      <motion.div
-        key={currentSlide}
-        className="absolute bottom-0 left-0 h-1 bg-gradient-to-r from-blue-500 to-purple-500"
-        initial={{ width: "0%" }}
-        animate={{ width: "100%" }}
-        transition={{ duration: 5, ease: "linear" }}
-        onAnimationComplete={goToNext}
-      />
+      {showProgressBar && (
+        <motion.div
+          key={currentSlide}
+          className="absolute bottom-0 left-0 h-1 bg-gradient-to-r from-blue-500 to-purple-500"
+          initial={{ width: "0%" }}
+          animate={{ width: "100%" }}
+          transition={{ duration: 5, ease: "linear" }}
+          onAnimationComplete={autoPlay ? goToNext : undefined}
+        />
+      )}
     </div>
   );
 }
