@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@400;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body, #__next {
+  height: 100%;
+}
+
+body {
+  @apply bg-gray-50 text-gray-900 antialiased;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Typography */
+.heading-font {
+  font-family: 'Poppins', 'Inter', sans-serif;
+  font-weight: 700;
+  color: #111827;
+}
+
+.body-font {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  color: #374151;
+}
+
+.button-font {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+/* Theme Colors */
+:root {
+  --primary-blue: #2563EB;
+  --secondary-indigo: #4F46E5;
+  --accent-purple: #7C3AED;
+  --success-green: #10B981;
+  --warning-orange: #F59E0B;
+  --error-red: #EF4444;
+  --dark-text: #111827;
+  --gray-text: #374151;
+  --background-gray: #F9FAFB;
+  --white: #FFFFFF;
+  --footer-dark: #111827;
+  --footer-darker: #0F172A;
+}
+
+/* Custom carousel styles */
+.carousel-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.carousel-slide {
+  transition: transform 0.8s ease-in-out;
+}
+
+/* Ensure smooth animations */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Fix for potential layout shifts */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Custom utility classes for theme */
+.bg-primary-gradient {
+  background: linear-gradient(135deg, #2563EB, #4F46E5);
+}
+
+.bg-hero-gradient {
+  background: linear-gradient(135deg, #2563EB, #4F46E5, #7C3AED);
+}
+
+/* Button styles */
+.btn-primary {
+  @apply bg-primary-gradient text-white font-semibold px-6 py-3 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl;
+}
+
+.btn-secondary {
+  @apply bg-white text-primary-blue border-2 border-primary-blue font-semibold px-6 py-3 rounded-full transition-all duration-300 transform hover:scale-105 hover:bg-primary-blue hover:text-white;
+}
+
+/* Card hover effects */
+.card-hover {
+  @apply transition-all duration-300 transform hover:-translate-y-2 hover:shadow-xl;
+}
+
+/* Scale up animation */
+.scale-up {
+  @apply transform transition-transform duration-300 hover:scale-105;
+}
+
+/* Lift up animation */
+.lift-up {
+  @apply transform transition-all duration-300 hover:-translate-y-1 hover:shadow-lg;
+}
+

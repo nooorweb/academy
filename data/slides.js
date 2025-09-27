@@ -1,0 +1,52 @@
+  export const heroSlides = [
+      {
+      id: 1,
+      image: "/images/About/about-1.jpg",
+      title: "Meeting Cricketer",
+      subtitle: "Inspiring Excellence Through Sports",
+      description:
+        "An exclusive meeting with a renowned Pakistani cricketer, inspiring our students to pursue excellence both in academics and sports, fostering discipline, teamwork, and determination.",
+      badge: "Special Event",
+      badgeColor: "bg-gradient-to-r from-green-400 to-green-600",
+    },
+    {
+      id: 2,
+      image: "/images/About/about-2.jpg",
+      title: "Celebrating Excellence",
+      subtitle: "Moment of Achievement",
+      description:
+        "Witness the joy and pride as we celebrate our students' remarkable achievements and dedication to learning excellence.",
+      badge: "Success Story",
+      badgeColor: "bg-gradient-to-r from-yellow-400 to-orange-500",
+    },
+    {
+      id: 3,
+      image: "/images/About/about-3.jpg",
+      title: "Professional Development",
+      subtitle: "Skills Enhancement Workshop",
+      description:
+        "Join our comprehensive workshops and seminars designed to enhance communication skills and professional development.",
+      badge: "Workshop",
+      badgeColor: "bg-gradient-to-r from-green-400 to-green-600",
+    },
+    {
+      id: 4,
+      image: "/images/About/about-4.jpg",
+      title: "Recognition & Awards",
+      subtitle: "Honoring Excellence",
+      description:
+        "Celebrating outstanding achievements and recognizing the hard work and dedication of our students and faculty members.",
+      badge: "Awards",
+      badgeColor: "bg-gradient-to-r from-purple-400 to-purple-600",
+    },
+    {
+      id: 5,
+      image: "/images/About/about-6.jpg",
+      title: "Community Celebration",
+      subtitle: "United in Success",
+      description:
+        "Celebrating together as a community, sharing moments of joy and achievement that define our academy's spirit.",
+      badge: "Community",
+      badgeColor: "bg-gradient-to-r from-red-400 to-pink-500",
+    },
+  ];
