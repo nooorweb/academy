@@ -50,8 +50,7 @@ export default function Footer() {
           
           {/* Explore Section */}
           <div>
-            <div className="font-bold text-lg mb-6 flex items-center gap-2 font-heading">
-              <i className="fas fa-compass text-primary-blue"></i>
+            <div className="font-bold text-lg mb-6 font-heading">
               <span className="text-white">Explore</span>
             </div>
             <ul className="space-y-4">
@@ -96,17 +95,16 @@ export default function Footer() {
           
           {/* Contact Info Section */}
           <div>
-            <div className="font-bold text-lg mb-6 flex items-center gap-2 font-heading">
-              <i className="fas fa-map-marker-alt text-primary-blue"></i>
+            <div className="font-bold text-lg mb-6 font-heading">
               <span className="text-white">Contact Info</span>
             </div>
             <div className="space-y-4 text-sm">
               <div className="flex items-start gap-3 group">
-                <i className="fas fa-map-marker-alt mt-1 text-primary-blue group-hover:text-primary-blue/80 transition-colors duration-300"></i>
+                <i className="fas fa-map-marker-alt mt-1 text-white text-lg group-hover:text-white/80 transition-colors duration-300"></i>
                 <span className="text-gray-300 leading-relaxed">Railway Road Bannu, Near Masjid Bajan, inside Al Faiz Education System (Branch 1)</span>
               </div>
               <div className="flex items-center gap-3 group">
-                <i className="fas fa-phone text-primary-blue group-hover:text-primary-blue/80 transition-colors duration-300"></i>
+                <i className="fas fa-phone text-white text-lg group-hover:text-white/80 transition-colors duration-300"></i>
                 <div className="flex flex-col gap-1">
                   <a 
                     href="tel:+923315850150" 
@@ -123,7 +121,7 @@ export default function Footer() {
                 </div>
               </div>
               <div className="flex items-center gap-3 group">
-                <i className="fas fa-envelope text-primary-blue group-hover:text-primary-blue/80 transition-colors duration-300"></i>
+                <i className="fas fa-envelope text-white text-lg group-hover:text-white/80 transition-colors duration-300"></i>
                 <a 
                   href="mailto:info@globalenglishacademy.com" 
                   className="text-gray-300 hover:text-primary-blue transition-colors duration-300"
@@ -136,8 +134,7 @@ export default function Footer() {
           
           {/* Location Section */}
           <div>
-            <div className="font-bold text-lg mb-6 flex items-center gap-2 font-heading">
-              <i className="fas fa-map text-primary-blue"></i>
+            <div className="font-bold text-lg mb-6 font-heading">
               <span className="text-white">Find Us on the Map</span>
             </div>
             <div className="h-40 bg-gray-800 rounded-xl overflow-hidden shadow-lg">
