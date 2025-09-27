@@ -59,25 +59,46 @@ export default function Navbar() {
       {isMenuOpen && (
         <div className="md:hidden border-t bg-white shadow-lg">
           <nav className="px-4 py-4 space-y-3">
-            <Link href="/" className="block text-gray-text hover:text-primary-blue transition-colors py-2 font-medium">
+            <Link 
+              href="/" 
+              className="block text-gray-text hover:text-primary-blue transition-colors py-2 font-medium"
+              onClick={() => setIsMenuOpen(false)}
+            >
               Home
             </Link>
-            <Link href="/courses" className="block text-gray-text hover:text-primary-blue transition-colors py-2 font-medium">
+            <Link 
+              href="/courses" 
+              className="block text-gray-text hover:text-primary-blue transition-colors py-2 font-medium"
+              onClick={() => setIsMenuOpen(false)}
+            >
               Courses
             </Link>
-            <Link href="/teachers" className="block text-gray-text hover:text-primary-blue transition-colors py-2 font-medium">
+            <Link 
+              href="/teachers" 
+              className="block text-gray-text hover:text-primary-blue transition-colors py-2 font-medium"
+              onClick={() => setIsMenuOpen(false)}
+            >
               Teachers
             </Link>
-            <Link href="/about" className="block text-gray-text hover:text-primary-blue transition-colors py-2 font-medium">
+            <Link 
+              href="/about" 
+              className="block text-gray-text hover:text-primary-blue transition-colors py-2 font-medium"
+              onClick={() => setIsMenuOpen(false)}
+            >
               About
             </Link>
-            <Link href="/contact" className="block text-gray-text hover:text-primary-blue transition-colors py-2 font-medium">
+            <Link 
+              href="/contact" 
+              className="block text-gray-text hover:text-primary-blue transition-colors py-2 font-medium"
+              onClick={() => setIsMenuOpen(false)}
+            >
               Contact
             </Link>
             <div className="pt-4 border-t">
               <Link 
                 href="/courses" 
                 className="block bg-primary-gradient text-white px-6 py-3 rounded-full text-center font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg button-font"
+                onClick={() => setIsMenuOpen(false)}
               >
                 Get Started
               </Link>

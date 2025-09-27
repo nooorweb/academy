@@ -1,8 +1,9 @@
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 
 export default function TeacherCard({ teacher }) {
-  const avatarSrc = teacher.avatar || "/globe.svg";
+  const avatarSrc = teacher.avatar || "/images/teacher1.jpeg";
   
   return (
     <motion.div
@@ -14,13 +15,15 @@ export default function TeacherCard({ teacher }) {
     >
       <Link
         href={`/teachers/${teacher.id}`}
-        className="group block rounded-xl border border-gray-200 bg-white shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden transform-gpu hover:ring-2 hover:ring-primary-blue/20 lift-up"
+        className="group block rounded-xl border border-gray-200 bg-white shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden transform-gpu hover:ring-2 hover:ring-primary-blue/20"
       >
         <div className="relative">
           <div className="h-48 w-full overflow-hidden">
-            <img 
+            <Image 
               src={avatarSrc} 
               alt={teacher.name}
+              width={300}
+              height={200}
               className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110" 
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -48,38 +51,31 @@ export default function TeacherCard({ teacher }) {
               {teacher.name}
             </h3>
             {teacher.title && (
-              <p className="text-sm text-gray-text mb-3">{teacher.title}</p>
+              <p className="text-sm text-gray-600 mb-3">{teacher.title}</p>
             )}
-            <div className="flex items-center gap-4 text-xs text-gray-text">
+            <div className="flex items-center gap-4 text-xs text-gray-500">
               <span className="flex items-center gap-1">
-                <i className="fas fa-clock text-primary-blue"></i>
+                <i className="fas fa-clock text-blue-500"></i>
                 {teacher.experience}
               </span>
               <span className="flex items-center gap-1">
-                <i className="fas fa-users text-primary-blue"></i>
+                <i className="fas fa-users text-blue-500"></i>
                 {teacher.studentsCount.toLocaleString()}+ students
               </span>
             </div>
           </div>
           
-          {teacher.bio && (
-            <p className="text-gray-text text-sm mb-4 line-clamp-2">
-              {teacher.bio}
-            </p>
-          )}
-          
           {/* Specializations */}
           <div className="mb-4">
-            <div className="text-xs font-semibold text-dark-text mb-2">Specializations:</div>
             <div className="flex flex-wrap gap-1">
-              {teacher.specializations.slice(0, 3).map((spec, index) => (
-                <span key={index} className="inline-flex items-center rounded-full bg-primary-blue/10 text-primary-blue px-3 py-1 text-xs font-medium">
+              {teacher.specializations.slice(0, 2).map((spec, index) => (
+                <span key={index} className="inline-flex items-center rounded-full bg-blue-50 text-blue-700 px-2 py-1 text-xs font-medium">
                   {spec}
                 </span>
               ))}
-              {teacher.specializations.length > 3 && (
-                <span className="inline-flex items-center rounded-full bg-gray-100 text-gray-text px-3 py-1 text-xs font-medium">
-                  +{teacher.specializations.length - 3} more
+              {teacher.specializations.length > 2 && (
+                <span className="inline-flex items-center rounded-full bg-gray-100 text-gray-600 px-2 py-1 text-xs font-medium">
+                  +{teacher.specializations.length - 2} more
                 </span>
               )}
             </div>
@@ -87,9 +83,9 @@ export default function TeacherCard({ teacher }) {
           
           {/* Stats */}
           <div className="flex items-center justify-between pt-4 border-t border-gray-100">
-            <div className="flex items-center gap-4 text-sm text-gray-text">
+            <div className="flex items-center gap-4 text-sm text-gray-500">
               <span className="flex items-center gap-1">
-                <i className="fas fa-book text-primary-blue"></i>
+                <i className="fas fa-book text-blue-500"></i>
                 {teacher.coursesCount} courses
               </span>
               <span className="flex items-center gap-1">
@@ -97,7 +93,7 @@ export default function TeacherCard({ teacher }) {
                 {teacher.rating}
               </span>
             </div>
-            <span className="text-sm text-primary-blue font-semibold group-hover:text-primary-blue/80 transition-colors">
+            <span className="text-sm text-blue-600 font-semibold group-hover:text-blue-800 transition-colors">
               View Profile <i className="fas fa-arrow-right ml-1"></i>
             </span>
           </div>

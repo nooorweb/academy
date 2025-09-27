@@ -93,10 +93,10 @@ export default function ModernHeroCarousel() {
         <AnimatePresence mode="wait">
           <motion.div
             key={currentSlide}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.8, ease: "easeInOut" }}
+            initial={{ opacity: 0, scale: 1.05 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.95 }}
+            transition={{ duration: 1.2, ease: "easeInOut" }}
             className="absolute inset-0"
           >
             {/* Image */}
@@ -105,9 +105,12 @@ export default function ModernHeroCarousel() {
                 src={heroSlides[currentSlide].image}
                 alt={heroSlides[currentSlide].title}
                 fill
-                className="object-cover object-top transition-transform duration-1000"
+                className="object-cover object-center transition-all duration-1000 ease-in-out"
                 priority={currentSlide === 0}
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 50vw"
+                quality={90}
+                placeholder="blur"
+                blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k="
               />
               <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/30 to-transparent"></div>
               <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
