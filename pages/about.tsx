@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Image from "next/image";
 import ModernHeroCarousel from "../components/ModernHeroCarousel";
 
 export default function AboutPage() {
@@ -27,9 +28,11 @@ export default function AboutPage() {
             </p>
           </div>
           <div className="flex justify-center lg:justify-end">
-            <img 
-              src="/images/WhatsApp Image 2025-09-24 at 11.32.24 PM (1).jpeg" 
+            <Image 
+              src="/images/About/about-1.jpg" 
               alt="The Global English Academy Campus" 
+              width={400}
+              height={300}
               className="w-full max-w-md h-auto rounded-lg shadow-xl"
               style={{ border: '2px solid #ddd', borderRadius: '10px' }}
             />
