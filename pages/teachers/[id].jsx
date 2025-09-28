@@ -79,7 +79,7 @@ export default function TeacherDetailPage() {
             <img
               src={teacher.avatar || "/globe.svg"}
               alt={teacher.name}
-              className="rounded-xl shadow-md w-full max-w-md object-cover"
+              className="rounded-xl shadow-md w-full max-w-sm md:max-w-md object-contain bg-white p-2"
             />
           </div>
         </div>
@@ -125,14 +125,8 @@ export default function TeacherDetailPage() {
         {/* Right Column (Sidebar) */}
         <div>
           <div className="rounded-xl shadow-sm bg-white p-6 md:p-8 border border-gray-200 space-y-4">
-            {typeof teacher.rating === "number" && (
-              <div className="text-sm text-gray-700">Rating: <span className="font-semibold">{teacher.rating}</span></div>
-            )}
             {teacher.experience && (
               <div className="text-sm text-gray-700">Experience: <span className="font-semibold">{teacher.experience}</span></div>
-            )}
-            {typeof teacher.studentsCount === "number" && (
-              <div className="text-sm text-gray-700">Students: <span className="font-semibold">{teacher.studentsCount.toLocaleString()}+</span></div>
             )}
             {typeof teacher.coursesCount === "number" && (
               <div className="text-sm text-gray-700">Courses: <span className="font-semibold">{teacher.coursesCount}</span></div>

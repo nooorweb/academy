@@ -12,89 +12,92 @@ export default function TeacherCard({ teacher }) {
       transition={{ duration: 0.6 }}
       viewport={{ once: true }}
       whileHover={{ y: -8 }}
+      className="group"
     >
       <Link
         href={`/teachers/${teacher.id}`}
-        className="group block rounded-xl border border-gray-200 bg-white shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden transform-gpu hover:ring-2 hover:ring-primary-blue/20"
+        className="block max-w-sm mx-auto rounded-xl border border-gray-200 bg-white shadow-md transition-all duration-300 overflow-hidden"
       >
         <div className="relative">
-          <div className="h-48 w-full overflow-hidden">
+          {/* Image Container adjusted to show full image */}
+          <div className="h-44 w-full overflow-hidden bg-white relative flex items-center justify-center">
             <Image 
               src={avatarSrc} 
               alt={teacher.name}
-              width={300}
-              height={200}
-              className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110" 
+              width={400}
+              height={224}
+              className="max-h-full max-w-full object-contain"
+              priority={false}
+              onError={(e) => {
+                e.target.src = "/images/teacher1.jpeg";
+              }}
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            <div className="absolute inset-0 pointer-events-none"></div>
           </div>
-          
-          {/* Badges */}
-          <div className="absolute top-3 left-3 flex flex-wrap gap-1">
-            {teacher.badges.slice(0, 2).map((badge, index) => (
-              <span key={index} className="inline-flex items-center rounded-full bg-primary-gradient text-white px-3 py-1 text-xs font-medium shadow-lg">
-                {badge}
-              </span>
-            ))}
-          </div>
-          
-          {/* Rating */}
-          <div className="absolute top-3 right-3 bg-white/95 backdrop-blur-sm rounded-full px-3 py-1.5 flex items-center gap-1 shadow-lg">
-            <i className="fas fa-star text-yellow-400 text-sm"></i>
-            <span className="text-sm font-semibold text-dark-text">{teacher.rating}</span>
-          </div>
+          {/* Rating removed */}
         </div>
         
-        <div className="p-6">
+        {/* Content Section */}
+        <div className="p-4">
+          {/* Badges now below image */}
+          {teacher.badges?.length > 0 && (
+            <div className="mb-3 flex flex-wrap gap-2">
+              {teacher.badges.slice(0, 2).map((badge, index) => (
+                <span 
+                  key={index} 
+                  className="inline-flex items-center rounded-full bg-blue-50 text-blue-700 px-3 py-1 text-xs font-semibold border border-blue-100"
+                >
+                  {badge}
+                </span>
+              ))}
+            </div>
+          )}
+          {/* Teacher Info */}
           <div className="mb-4">
-            <h3 className="text-xl font-bold leading-snug mb-2 group-hover:text-primary-blue transition-colors font-heading">
+            <h3 className="text-lg font-bold text-gray-900 leading-tight mb-1 group-hover:text-blue-600 transition-colors duration-300 font-heading line-clamp-1">
               {teacher.name}
             </h3>
             {teacher.title && (
-              <p className="text-sm text-gray-600 mb-3">{teacher.title}</p>
+              <p className="text-xs text-gray-600 mb-3 line-clamp-1">{teacher.title}</p>
             )}
-            <div className="flex items-center gap-4 text-xs text-gray-500">
-              <span className="flex items-center gap-1">
-                <i className="fas fa-clock text-blue-500"></i>
+            <div className="flex items-center gap-4 text-sm text-gray-500">
+              <span className="flex items-center gap-1.5">
+                <i className="fas fa-clock text-blue-500 text-xs"></i>
                 {teacher.experience}
-              </span>
-              <span className="flex items-center gap-1">
-                <i className="fas fa-users text-blue-500"></i>
-                {teacher.studentsCount.toLocaleString()}+ students
               </span>
             </div>
           </div>
           
           {/* Specializations */}
-          <div className="mb-4">
-            <div className="flex flex-wrap gap-1">
-              {teacher.specializations.slice(0, 2).map((spec, index) => (
-                <span key={index} className="inline-flex items-center rounded-full bg-blue-50 text-blue-700 px-2 py-1 text-xs font-medium">
+          <div className="mb-3">
+            <div className="flex flex-wrap gap-2">
+              {teacher.specializations?.slice(0, 3).map((spec, index) => (
+                <span 
+                  key={index} 
+                  className="inline-flex items-center rounded-lg bg-blue-50 text-blue-700 px-3 py-1.5 text-xs font-semibold border border-blue-100"
+                >
                   {spec}
                 </span>
               ))}
-              {teacher.specializations.length > 2 && (
-                <span className="inline-flex items-center rounded-full bg-gray-100 text-gray-600 px-2 py-1 text-xs font-medium">
-                  +{teacher.specializations.length - 2} more
+              {teacher.specializations?.length > 3 && (
+                <span className="inline-flex items-center rounded-lg bg-gray-50 text-gray-600 px-3 py-1.5 text-xs font-semibold border border-gray-100">
+                  +{teacher.specializations.length - 3} more
                 </span>
               )}
             </div>
           </div>
           
-          {/* Stats */}
-          <div className="flex items-center justify-between pt-4 border-t border-gray-100">
-            <div className="flex items-center gap-4 text-sm text-gray-500">
-              <span className="flex items-center gap-1">
+          {/* Stats & CTA */}
+          <div className="flex items-center justify-between pt-3 border-t border-gray-100">
+            <div className="flex items-center gap-4 text-sm text-gray-600">
+              <span className="flex items-center gap-1.5">
                 <i className="fas fa-book text-blue-500"></i>
                 {teacher.coursesCount} courses
               </span>
-              <span className="flex items-center gap-1">
-                <i className="fas fa-star text-yellow-400"></i>
-                {teacher.rating}
-              </span>
             </div>
-            <span className="text-sm text-blue-600 font-semibold group-hover:text-blue-800 transition-colors">
-              View Profile <i className="fas fa-arrow-right ml-1"></i>
+            <span className="text-sm text-blue-600 font-semibold transition-colors duration-300 flex items-center gap-1">
+              View Profile 
+              <i className="fas fa-arrow-right ml-1 transition-transform duration-300 group-hover:translate-x-1"></i>
             </span>
           </div>
         </div>
