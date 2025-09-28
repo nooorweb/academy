@@ -32,7 +32,7 @@ export default function TeacherDetailPage() {
       </div>
       <div className="rounded-xl border bg-white p-6 shadow-sm">
         <div className="flex items-start gap-4">
-          <img src={teacher.avatar || "/globe.svg"} alt={teacher.name} className="h-16 w-16" />
+          <img src={teacher.avatar || "/globe.svg"} alt={teacher.name} className="h-24 w-24 rounded-lg object-cover" />
           <div>
             <h1 className="text-3xl font-extrabold">{teacher.name}</h1>
             {teacher.title && <div className="text-gray-600">{teacher.title}</div>}
