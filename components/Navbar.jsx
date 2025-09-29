@@ -38,14 +38,9 @@ export default function Navbar() {
         </nav>
 
         {/* CTA Button */}
-        <div className="hidden md:flex items-center gap-4">
-          <Button 
-            href="/courses" 
-            variant="primary"
-            size="sm"
-          >
-            Get Started
-          </Button>
+        <div className="hidden md:flex items-center gap-3">
+          <Button href="/enroll" variant="secondary" size="sm">Enroll</Button>
+          <Button href="/courses" variant="primary" size="sm">Get Started</Button>
         </div>
 
         {/* Mobile Menu Button */}
