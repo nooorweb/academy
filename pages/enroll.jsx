@@ -1,7 +1,10 @@
 import { useState } from "react";
 import Head from "next/head";
 
+import { useRouter } from "next/router";
+
 export default function EnrollPage() {
+  const router = useRouter();
   const [step, setStep] = useState(1);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -12,6 +15,13 @@ export default function EnrollPage() {
     phone: "",
     courseId: "",
   });
+
+  // Prefill course from query
+  useState(() => {
+    if (router?.query?.courseId) {
+      setForm((f) => ({ ...f, courseId: String(router.query.courseId) }));
+    }
+  }, [router?.query?.courseId]);
 
   const next = () => setStep((s) => Math.min(s + 1, 3));
   const prev = () => setStep((s) => Math.max(s - 1, 1));

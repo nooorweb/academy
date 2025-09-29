@@ -100,7 +100,7 @@ export default function CourseDetailPage() {
               {course.fee ? `${course.fee.toLocaleString()} ${course.currency || "PKR"}` : "Free"}
             </div>
             <button className="w-full bg-black text-white py-3 rounded-full font-semibold hover:bg-gray-900 transition">
-              Enroll Now
+              <Link href={`/enroll?courseId=${course.id}`}>Enroll Now</Link>
             </button>
             <p className="text-sm text-gray-500 text-center">
               Secure your seat today!
