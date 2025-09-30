@@ -1,7 +1,10 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { useState } from "react";
+import EnrollmentForm from "./EnrollmentForm";
 
 export default function CourseCard({ course }) {
+  const [isEnrollmentOpen, setIsEnrollmentOpen] = useState(false);
   const imageSrc = course.image || "/globe.svg";
 
   return (
@@ -103,13 +106,29 @@ export default function CourseCard({ course }) {
               </div>
             </div>
             <button 
-              className="bg-primary-blue text-white px-4 md:px-5 py-1.5 md:py-2 rounded-full text-xs md:text-sm font-medium transition-all duration-300 shadow-md hover:shadow-lg hover:translate-x-1 hover:bg-blue-700"
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                setIsEnrollmentOpen(true);
+              }}
+              className="bg-primary-blue text-white px-3 sm:px-4 md:px-5 py-1.5 md:py-2 rounded-full text-xs md:text-sm font-medium transition-all duration-300 shadow-md hover:shadow-lg hover:translate-x-1 hover:bg-blue-700"
             >
-              Enroll <i className="fas fa-arrow-right ml-1 text-[10px]"></i>
+              <span className="hidden sm:inline">Enroll</span>
+              <span className="sm:hidden">Join</span>
+              <i className="fas fa-arrow-right ml-1 text-[10px]"></i>
             </button>
           </div>
         </div>
       </Link>
+      
+      {/* Enrollment Form Modal */}
+      <EnrollmentForm 
+        isOpen={isEnrollmentOpen}
+        onClose={() => setIsEnrollmentOpen(false)}
+        courseTitle={course.title}
+        coursePrice={course.fee ? course.fee.toLocaleString() : "Free"}
+        courseCurrency={course.currency || "PKR"}
+      />
     </motion.div>
   );
 }

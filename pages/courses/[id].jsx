@@ -1,12 +1,15 @@
 import { useRouter } from "next/router";
 import Head from "next/head";
 import Link from "next/link";
+import { useState } from "react";
 import { courses } from "../../data/courses";
+import EnrollmentForm from "../../components/EnrollmentForm";
 
 export default function CourseDetailPage() {
   const router = useRouter();
   const { id } = router.query;
   const course = courses.find((c) => c.id === id);
+  const [isEnrollmentOpen, setIsEnrollmentOpen] = useState(false);
 
   if (!course) {
     return (
@@ -99,8 +102,12 @@ export default function CourseDetailPage() {
             <div className="text-2xl font-extrabold text-gray-900">
               {course.fee ? `${course.fee.toLocaleString()} ${course.currency || "PKR"}` : "Free"}
             </div>
-            <button className="w-full bg-black text-white py-3 rounded-full font-semibold hover:bg-gray-900 transition">
-              <Link href={`/enroll?courseId=${course.id}`}>Enroll Now</Link>
+            <button 
+              onClick={() => setIsEnrollmentOpen(true)}
+              className="w-full bg-black text-white py-2 sm:py-3 rounded-full font-semibold hover:bg-gray-900 transition text-sm sm:text-base"
+            >
+              <span className="hidden sm:inline">Enroll Now</span>
+              <span className="sm:hidden">Enroll</span>
             </button>
             <p className="text-sm text-gray-500 text-center">
               Secure your seat today!
@@ -108,6 +115,15 @@ export default function CourseDetailPage() {
           </div>
         </div>
       </div>
+      
+      {/* Enrollment Form Modal */}
+      <EnrollmentForm 
+        isOpen={isEnrollmentOpen}
+        onClose={() => setIsEnrollmentOpen(false)}
+        courseTitle={course?.title}
+        coursePrice={course?.fee ? course.fee.toLocaleString() : "Free"}
+        courseCurrency={course?.currency || "PKR"}
+      />
     </div>
   );
 }
