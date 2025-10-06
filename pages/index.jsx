@@ -230,23 +230,23 @@ export default function Home() {
           <div className="grid md:grid-cols-3 gap-8">
             {[
               {
-                name: "Sarah Johnson",
+                name: "Ahmed Ali Khan",
                 role: "Frontend Developer",
-                company: "TechCorp",
+                company: "TechSol Pakistan",
                 content: "The Global English Academy helped me transition from a non-tech background to a successful developer role. The practical approach and expert guidance were invaluable.",
                 avatar: "/images/testimonial1.jpeg"
               },
               {
-                name: "Michael Chen",
+                name: "Fatima Noor",
                 role: "Full Stack Developer",
-                company: "StartupXYZ",
+                company: "Digital Solutions Karachi",
                 content: "The courses are well-structured and the instructors are industry experts. I landed my dream job within 3 months of completing the program.",
                 avatar: "/images/testimonial2.jpeg"
               },
               {
-                name: "Emily Rodriguez",
+                name: "Hassan Shah",
                 role: "UI/UX Designer",
-                company: "Design Studio",
+                company: "Creative Studio Lahore",
                 content: "The hands-on projects and real-world scenarios made learning engaging and practical. Highly recommend for anyone serious about their career.",
                 avatar: "/images/testimonial3.jpeg"
               }

@@ -21,7 +21,7 @@ module.exports = {
         'footer-darker': '#0F172A',
       },
       fontFamily: {
-        sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        sans: ['Poppins', 'Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
         serif: ['ui-serif', 'Georgia', 'serif'],
         mono: ['ui-monospace', 'SFMono-Regular', 'monospace'],
         heading: ['Poppins', 'Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],

@@ -10,7 +10,7 @@ html, body, #__next {
 
 body {
   @apply bg-gray-50 text-gray-900 antialiased;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Poppins', 'Inter', sans-serif;
 }
 
 /* Typography */
@@ -21,15 +21,14 @@ body {
 }
 
 .body-font {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Poppins', 'Inter', sans-serif;
   font-weight: 400;
   color: #374151;
 }
 
 .button-font {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Poppins', 'Inter', sans-serif;
   font-weight: 600;
-  text-transform: uppercase;
 }
 
 /* Theme Colors */
